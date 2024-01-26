@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://1ec1jf3x0c83"]
+
+[ext_resource type="Texture2D" uid="uid://n1vbnvmlv7e3" path="res://Assets/Carte.png" id="1_whbot"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4ef8"]
+size = Vector2(330.5, 631)
+
+[node name="Area2D" type="Area2D"]
+scale = Vector2(0.3, 0.3)
+
+[node name="Carte" type="Sprite2D" parent="."]
+texture = ExtResource("1_whbot")
+
+[node name="Label" type="Label" parent="Carte"]
+offset_left = -155.0
+offset_top = -121.0
+offset_right = 154.0
+offset_bottom = 84.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "* BRUIT DE PET *"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.25, 0)
+shape = SubResource("RectangleShape2D_g4ef8")
+
+[node name="Node2D" type="Node2D" parent="."]

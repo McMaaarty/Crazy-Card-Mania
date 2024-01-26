@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://us1e56peb5sw"]
 
-[ext_resource type="Texture2D" uid="uid://baebscneesyc8" path="res://MenuSpaghet.png" id="1_xucoj"]
+[ext_resource type="Texture2D" uid="uid://baebscneesyc8" path="res://Assets/MenuSpaghet.png" id="1_xucoj"]
 
 [node name="MenuSpaghet" type="Sprite2D"]
 position = Vector2(598, 188)

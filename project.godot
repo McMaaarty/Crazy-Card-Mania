@@ -11,12 +11,21 @@ config_version=5
 [application]
 
 config/name="Crazy Card Mania"
+run/main_scene="res://Scenes/BattleArena.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://Assets/icon.svg"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [dotnet]
 
 project/assembly_name="Crazy Card Mania"
+
+[physics]
+
+2d/default_gravity_vector=Vector2(0, 0)
 
 [rendering]
 
