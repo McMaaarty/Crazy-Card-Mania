@@ -53,4 +53,4 @@ func loadFarts():
 	fartSounds = [fart1, fart3, fart4, fart5, fart6, fart7, fart8, fart9]
 
 func get_random_fart():
-	pass
+	return fartSounds.pick_random()
