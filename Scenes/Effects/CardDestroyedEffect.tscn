@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://oymmrumqqek3"]
+
+[ext_resource type="Script" path="res://Scenes/Effects/EffectEnd.gd" id="1_tl8h7"]
+
+[sub_resource type="Curve" id="Curve_itveb"]
+max_value = 45.0
+_data = [Vector2(0, 45), 0.0, -44.0, 0, 1, Vector2(1, 1), -44.0, 0.0, 1, 0]
+point_count = 2
+
+[node name="CardDestroyedEffect" type="Node2D"]
+z_index = 2
+script = ExtResource("1_tl8h7")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 50
+lifetime = 0.25
+one_shot = true
+speed_scale = 0.5
+lifetime_randomness = 0.3
+emission_shape = 3
+emission_rect_extents = Vector2(180, 90)
+direction = Vector2(0, 0)
+gravity = Vector2(0, 0)
+initial_velocity_min = 132.07
+initial_velocity_max = 452.82
+orbit_velocity_min = 1.0
+orbit_velocity_max = 1.5
+linear_accel_min = 100.0
+linear_accel_max = 100.0
+scale_amount_curve = SubResource("Curve_itveb")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 10.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
