@@ -14,6 +14,8 @@ var hoverCard2:bool
 var hoverCard3:bool
 var hoverCard4:bool
 
+var adversaire:Array
+
 var normal_scale:float = 1
 var high_scale:float = 1.5
 
@@ -26,6 +28,12 @@ func _ready():
 	card3 = $Node2D/Card3
 	card4 = $Node2D/Card4
 	label = $CenterContainer/Label
+	
+	adversaire.append($NodeAdversaire/CardAversaire1)
+	adversaire.append($NodeAdversaire/CardAversaire2)
+	adversaire.append($NodeAdversaire/CardAversaire3)
+	adversaire.append($NodeAdversaire/CardAversaire4)
+	
 	changePrompt("Le matin quand je me lêve ce que je préfère c'est ...")	
 	setupScene()
 
@@ -110,6 +118,16 @@ func instanciateEffect(card):
 	card.queue_free()
 	isPlaying = true
 	$Timer.start()
+	
+	var nodeAdversaire = $NodeAdversaire
+	
+	var carte = adversaire[randi_range(0, 3)]
+	var instanceAdversaire = eraseEffect.instantiate()
+	
+	instanceAdversaire.position = Vector2(carte.position.x + nodeAdversaire.position.x, carte.position.y + nodeAdversaire.position.y)
+	add_child(instanceAdversaire)
+	instanceAdversaire.start_emitting()
+	carte.queue_free()
 
 func setupScene():
 	$Node2D/AnimationPlayer.play("setup_cards_animation")
