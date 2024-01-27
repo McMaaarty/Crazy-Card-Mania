@@ -33,6 +33,7 @@ func _ready():
 	adversaire.append($NodeAdversaire/CardAversaire2)
 	adversaire.append($NodeAdversaire/CardAversaire3)
 	adversaire.append($NodeAdversaire/CardAversaire4)
+	adversaire.shuffle()
 	
 	changePrompt("Le matin quand je me lêve ce que je préfère c'est ...")	
 	setupScene()
@@ -121,7 +122,7 @@ func instanciateEffect(card):
 	
 	var nodeAdversaire = $NodeAdversaire
 	
-	var carte = adversaire[randi_range(0, 3)]
+	var carte = adversaire.pop_back()
 	var instanceAdversaire = eraseEffect.instantiate()
 	
 	instanceAdversaire.position = Vector2(carte.position.x + nodeAdversaire.position.x, carte.position.y + nodeAdversaire.position.y)
