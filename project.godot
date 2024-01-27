@@ -11,9 +11,12 @@ config_version=5
 [application]
 
 config/name="Crazy Card Mania"
-run/main_scene="res://Scenes/BattleArena.tscn"
+run/main_scene="res://Scenes/WorldScene.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
-config/icon="res://Assets/icon.svg"
+
+[autoload]
+
+StaticData="*res://Assets/Data/StaticData.gd"
 
 [display]
 

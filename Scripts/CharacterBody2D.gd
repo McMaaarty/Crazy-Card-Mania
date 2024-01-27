@@ -1,21 +1,15 @@
 extends CharacterBody2D
 
-
+@onready var _animated_sprite = $AnimatedSprite2D
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
+func _ready():
+	$AnimatedSprite2D2.hide()
 
 func _physics_process(delta):
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var directionX = Input.get_axis("ui_left", "ui_right")
 	var directionY = Input.get_axis("ui_up", "ui_down")
-	
-	
 	
 	if directionX:
 		velocity.x = directionX * SPEED
@@ -27,4 +21,16 @@ func _physics_process(delta):
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 
+	if directionX || directionY:
+		_animated_sprite.play("walk")
+	elif _animated_sprite.get_animation() != "iddle":
+		_animated_sprite.play("iddle")
+
 	move_and_slide()
+
+
+func _on_area_2d_body_entered(body):
+	if(body == self):
+		$AnimatedSprite2D2.show()
+		$AnimatedSprite2D2.play("Transition")
+		$Timer.start()

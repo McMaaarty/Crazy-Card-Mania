@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbn41y2brq4g4"]
+[gd_scene load_steps=6 format=3 uid="uid://cbn41y2brq4g4"]
 
 [ext_resource type="Script" path="res://Scenes/Effects/EffectEnd.gd" id="1_6admd"]
 [ext_resource type="Texture2D" uid="uid://7lkfn8wjotn6" path="res://Assets/Poop.png" id="2_t6o2f"]
@@ -8,6 +8,11 @@ _data = [Vector2(0, 1), 0.0, -0.703087, 0, 1, Vector2(0.913265, 0.357895), 0.0, 
 point_count = 4
 
 [sub_resource type="Gradient" id="Gradient_fy5l1"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.0545455, 0.181818, 0.333333, 0.50303, 0.648485, 0.806061, 0.921212)
+colors = PackedColorArray(0.14833, 0.805966, 1, 1, 1, 0.438623, 0.828072, 1, 0.784314, 1, 0, 1, 0.981271, 0.552006, 0.357227, 1, 0.406087, 0.837944, 0, 1, 0.207568, 0.220757, 1, 1, 0.873808, 0, 0.430083, 1)
+
+[sub_resource type="Gradient" id="Gradient_mf4bv"]
 interpolation_mode = 1
 offsets = PackedFloat32Array(0.0606061, 0.181818, 0.333333, 0.50303, 0.70303, 0.884848, 1)
 colors = PackedColorArray(0.701273, 0.330567, 9.62615e-08, 1, 0.54902, 0.388235, 0, 1, 0.3762, 0.418956, 0.187979, 1, 0.236811, 0.17849, 0.116003, 1, 0.787804, 0.583863, 0.153887, 1, 0.615957, 0.27613, 0.1944, 1, 1, 1, 1, 1)
@@ -34,7 +39,7 @@ scale_amount_curve = SubResource("Curve_yror8")
 color_initial_ramp = SubResource("Gradient_fy5l1")
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
-visible = false
+emitting = false
 amount = 50
 lifetime = 2.5
 speed_scale = 2.0
@@ -50,7 +55,7 @@ damping_max = 5.0
 scale_amount_min = 0.1
 scale_amount_max = 0.5
 scale_amount_curve = SubResource("Curve_yror8")
-color_initial_ramp = SubResource("Gradient_fy5l1")
+color_initial_ramp = SubResource("Gradient_mf4bv")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0

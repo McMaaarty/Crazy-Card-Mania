@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/BattleArena.gd" id="1_js77l"]
 [ext_resource type="PackedScene" uid="uid://1ec1jf3x0c83" path="res://Scenes/Objects/Card.tscn" id="2_3l3x1"]
-[ext_resource type="Texture2D" uid="uid://ck16f7o43wbrj" path="res://Assets/Flag_of_France.svg.png" id="3_26a5x"]
+[ext_resource type="AudioStream" uid="uid://bcxmn80whw8a5" path="res://Assets/Sounds/ReverbFart.mp3" id="4_34jy6"]
 [ext_resource type="PackedScene" uid="uid://cbn41y2brq4g4" path="res://Scenes/Effects/ConfettiPartyEffect.tscn" id="4_bao4m"]
 
 [sub_resource type="Animation" id="Animation_mdf07"]
@@ -113,20 +113,6 @@ offset_right = 581.137
 offset_bottom = 933.002
 rotation = 0.335236
 
-[node name="FlagOfFrance_svg" type="Sprite2D" parent="Node2D"]
-visible = false
-z_index = -1
-position = Vector2(380.212, 528.751)
-scale = Vector2(4.33973, 1)
-texture = ExtResource("3_26a5x")
-
-[node name="FlagOfFrance_svg2" type="Sprite2D" parent="Node2D"]
-visible = false
-z_index = -1
-position = Vector2(378.293, 77.751)
-scale = Vector2(4.43477, 0.726482)
-texture = ExtResource("3_26a5x")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D"]
 speed_scale = 2.5
 libraries = {
@@ -150,6 +136,10 @@ position = Vector2(544, 674)
 
 [node name="ConfettiPartyEffect3" parent="." instance=ExtResource("4_bao4m")]
 position = Vector2(870, 674)
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(587, 289)
+stream = ExtResource("4_34jy6")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="button_clic" from="Node2D/Card1" to="." method="_on_card_1_button_clic"]
