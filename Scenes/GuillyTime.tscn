@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dvkkiv3g2jw1n"]
 
 [ext_resource type="PackedScene" uid="uid://dlv3jx5bgj4w8" path="res://Scenes/Objects/MonsieurGuilly.tscn" id="1_bujmf"]
-[ext_resource type="Script" path="res://Scenes/GuillyTime.gd" id="1_vttfg"]
+[ext_resource type="Script" path="res://Scripts/GuillyTime.gd" id="1_yebls"]
 
 [node name="MarginContainer" type="MarginContainer"]
 anchors_preset = 15
@@ -9,7 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_vttfg")
+script = ExtResource("1_yebls")
 
 [node name="MonsieurGuilly" parent="." instance=ExtResource("1_bujmf")]
 position = Vector2(578, 328)
