@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://vrfn4o5tvdhq"]
+
+[ext_resource type="Script" path="res://Scripts/Objects/CardInventory.gd" id="1_fdo2b"]
+[ext_resource type="Texture2D" uid="uid://n1vbnvmlv7e3" path="res://Assets/Carte.png" id="1_hhrej"]
+
+[node name="RootButton" type="Button"]
+custom_minimum_size = Vector2(100, 190)
+offset_right = 100.0
+offset_bottom = 190.0
+script = ExtResource("1_fdo2b")
+
+[node name="Carte" type="Sprite2D" parent="."]
+position = Vector2(50, 95)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_hhrej")
+
+[node name="Label" type="Label" parent="Carte"]
+offset_left = -155.0
+offset_top = -121.0
+offset_right = 154.0
+offset_bottom = 84.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "* BRUIT DE PET *"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
