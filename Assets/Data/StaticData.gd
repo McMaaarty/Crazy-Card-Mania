@@ -5,9 +5,11 @@ var inventoryCardIds = {}
 var allCards = {}
 var fartSounds = []
 
+var gamer:int = 0
+var computer:int = 0
 
 func _ready():
-	allCards = load_json_file("res://Assets/data/datas.json")
+	allCards = load_json_file("res://Assets/Data/datas.json")
 	loadFarts()
 	print(load_by_id("questions", 5))
 	print(get_values_by_promptIds(2,1))
@@ -23,6 +25,13 @@ func load_by_id(listTarget : String, answer_id: int) -> String:
 			return key
 	return "Valeur non trouvé dans le dictionnaire : " + listTarget
 
+func id_by_string(listTarget:String, label:String) -> int:
+	var dict = allCards[listTarget]
+	return dict[label]
+
+func load_by_target(listTarget : String) -> Array:
+	var target:Dictionary = allCards[listTarget]
+	return target.keys()
 
 func get_values_by_promptIds(prompt_id: int, answer_id: int) -> int:
 	var values = allCards["Values"]
@@ -54,3 +63,19 @@ func loadFarts():
 
 func get_random_fart():
 	return fartSounds.pick_random()
+
+func reset_results():
+	gamer = 0
+	computer = 0
+
+func add_point_to_gamer(points: int):
+	gamer += points
+
+func get_gamer_points() -> int:
+	return gamer
+
+func add_point_to_computer(points: int):
+	computer += points
+
+func get_computer_points() -> int:
+	return computer
