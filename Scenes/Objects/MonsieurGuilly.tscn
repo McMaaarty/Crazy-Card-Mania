@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlv3jx5bgj4w8"]
+
+[ext_resource type="Script" path="res://Scenes/Objects/MonsieurGuilly.gd" id="1_on5qc"]
+
+[node name="MonsieurGuilly" type="Node2D"]
+script = ExtResource("1_on5qc")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-124, -92, -124, 201, 137, 201, 136, -92, 280, -100, 280, -173, -280, -173, -280, -100)
+
+[node name="ButtonVentre" type="Button" parent="Area2D/CollisionPolygon2D"]
+offset_left = -36.0
+offset_top = 37.0
+offset_right = 58.0
+offset_bottom = 160.0
+action_mode = 0
+text = "Ventre"
+
+[node name="ButtonCoteG" type="Button" parent="Area2D/CollisionPolygon2D"]
+offset_left = -121.0
+offset_top = -42.0
+offset_right = -65.0
+offset_bottom = 68.0
+text = "CoteG"
+
+[node name="ButtonCoteD" type="Button" parent="Area2D/CollisionPolygon2D"]
+offset_left = 78.0
+offset_top = -44.0
+offset_right = 134.0
+offset_bottom = 72.0
+text = "CoteD"
+
+[node name="ButtonAisselleG" type="Button" parent="Area2D/CollisionPolygon2D"]
+offset_left = -162.0
+offset_top = -100.0
+offset_right = -102.0
+offset_bottom = -69.0
+text = "AG"
+
+[node name="ButtonAisselleD" type="Button" parent="Area2D/CollisionPolygon2D"]
+offset_left = 114.0
+offset_top = -99.0
+offset_right = 170.0
+offset_bottom = -68.0
+text = "AD"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[connection signal="button_down" from="Area2D/CollisionPolygon2D/ButtonVentre" to="." method="_on_button_ventre_button_down"]
+[connection signal="button_down" from="Area2D/CollisionPolygon2D/ButtonCoteG" to="." method="_on_button_cote_g_button_down"]
+[connection signal="button_down" from="Area2D/CollisionPolygon2D/ButtonCoteD" to="." method="_on_button_cote_d_button_down"]
+[connection signal="button_down" from="Area2D/CollisionPolygon2D/ButtonAisselleG" to="." method="_on_button_aisselle_g_button_down"]
+[connection signal="button_down" from="Area2D/CollisionPolygon2D/ButtonAisselleD" to="." method="_on_button_aisselle_d_button_down"]
