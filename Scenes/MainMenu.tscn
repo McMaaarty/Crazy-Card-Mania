@@ -1,7 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://us1e56peb5sw"]
+[gd_scene load_steps=3 format=3 uid="uid://us1e56peb5sw"]
 
 [ext_resource type="Texture2D" uid="uid://baebscneesyc8" path="res://Assets/MenuSpaghet.png" id="1_xucoj"]
+[ext_resource type="Script" path="res://Scenes/MenuPrincipal.gd" id="1_xxbc2"]
 
-[node name="MenuSpaghet" type="Sprite2D"]
-position = Vector2(598, 188)
-texture = ExtResource("1_xucoj")
+[node name="MarginContainer" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Button" type="Button" parent="CenterContainer"]
+layout_mode = 2
+icon = ExtResource("1_xucoj")
+flat = true
+script = ExtResource("1_xxbc2")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/Button"]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 17.0
+offset_right = 138.0
+offset_bottom = 57.0
+text = "Jouer !"
+
+[connection signal="pressed" from="CenterContainer/Button" to="CenterContainer/Button" method="_on_pressed"]
