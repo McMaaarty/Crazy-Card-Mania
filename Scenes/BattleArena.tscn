@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://w473dwjglokp"]
+[gd_scene load_steps=12 format=3 uid="uid://w473dwjglokp"]
 
 [ext_resource type="Script" path="res://Scripts/BattleArena.gd" id="1_js77l"]
 [ext_resource type="PackedScene" uid="uid://1ec1jf3x0c83" path="res://Scenes/Objects/Card.tscn" id="2_3l3x1"]
 [ext_resource type="AudioStream" uid="uid://bcxmn80whw8a5" path="res://Assets/Sounds/ReverbFart.mp3" id="4_34jy6"]
 [ext_resource type="PackedScene" uid="uid://cbn41y2brq4g4" path="res://Scenes/Effects/ConfettiPartyEffect.tscn" id="4_bao4m"]
 [ext_resource type="Texture2D" uid="uid://n1vbnvmlv7e3" path="res://Assets/Carte.png" id="5_dbevr"]
+[ext_resource type="Texture2D" uid="uid://dtnaj48pbkyu" path="res://Assets/GoodCard.png" id="6_ef64o"]
 
 [sub_resource type="Animation" id="Animation_mdf07"]
 resource_name = "card_ready_animation"
@@ -231,6 +232,11 @@ speed_scale = 2.5
 libraries = {
 "": SubResource("AnimationLibrary_75063")
 }
+
+[node name="GoodCard" type="Sprite2D" parent="."]
+position = Vector2(106, 549)
+scale = Vector2(0.24375, 0.24375)
+texture = ExtResource("6_ef64o")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="button_clic" from="Node2D/Card1" to="." method="_on_card_1_button_clic"]

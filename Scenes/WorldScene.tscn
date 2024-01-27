@@ -1,15 +1,22 @@
-[gd_scene load_steps=30 format=3 uid="uid://domt57f73cbl2"]
+[gd_scene load_steps=39 format=3 uid="uid://domt57f73cbl2"]
 
 [ext_resource type="Script" path="res://Scripts/WorldScene.gd" id="1_kf6wq"]
 [ext_resource type="Script" path="res://Scripts/CharacterBody2D.gd" id="1_qlgkf"]
 [ext_resource type="Texture2D" uid="uid://dvs1fbb5r42fk" path="res://Assets/Sprites/Player.png" id="2_mynyj"]
-[ext_resource type="Texture2D" uid="uid://ir73lqpt2wd3" path="res://Assets/Sprites/House.png" id="3_otfxw"]
 [ext_resource type="Texture2D" uid="uid://caibxt6omhmcc" path="res://Assets/Sprites/pokemon_transition.png" id="4_dmkd6"]
-[ext_resource type="Texture2D" uid="uid://l8fv3er7g7mj" path="res://Assets/Sprites/FirePipe.png" id="4_ot6by"]
 [ext_resource type="Texture2D" uid="uid://cli573wng5dyx" path="res://Assets/Sprites/Flowers.png" id="5_exm1u"]
-[ext_resource type="Texture2D" uid="uid://b8v05rvd4weg4" path="res://Assets/Sprites/Tree1.png" id="6_td11n"]
-[ext_resource type="Texture2D" uid="uid://daqb1xpn0xge6" path="res://Assets/Sprites/Tree2.png" id="7_shyih"]
-[ext_resource type="Texture2D" uid="uid://cgba2m0uubeju" path="res://Assets/Sprites/Tree3.png" id="8_bqqu3"]
+[ext_resource type="Texture2D" uid="uid://cjubjia1l1ua" path="res://Assets/Sprites/ColoredFirePipe.png" id="5_n1jso"]
+[ext_resource type="Texture2D" uid="uid://b5x5pagjnp0b3" path="res://Assets/Sprites/Alien.png" id="6_msqyo"]
+[ext_resource type="Texture2D" uid="uid://cd0hmx12nfply" path="res://Assets/Sprites/ColoredBench.png" id="7_lx5fc"]
+[ext_resource type="Texture2D" uid="uid://b8dhmagoqyu5d" path="res://Assets/Sprites/ColoredBin.png" id="8_0nk03"]
+[ext_resource type="Texture2D" uid="uid://dn7j3c1uy5x6h" path="res://Assets/Sprites/ColoredFlower.png" id="9_1tgsb"]
+[ext_resource type="Texture2D" uid="uid://ch0uh12cqyf3u" path="res://Assets/Sprites/ColoredHouse.png" id="10_j7kiy"]
+[ext_resource type="Texture2D" uid="uid://dtgxdunhx00tn" path="res://Assets/Sprites/ColoredLight.png" id="11_t5kk4"]
+[ext_resource type="Texture2D" uid="uid://cktjassmnw7eu" path="res://Assets/Sprites/ColoredTree1.png" id="12_nistc"]
+[ext_resource type="Texture2D" uid="uid://ctohmbyuytrjk" path="res://Assets/Sprites/ColoredTree2.png" id="13_ana48"]
+[ext_resource type="Texture2D" uid="uid://c0chae3mknt0o" path="res://Assets/Sprites/ColoredTree3.png" id="14_k5yu7"]
+[ext_resource type="Texture2D" uid="uid://q8gst05fiuyp" path="res://Assets/Sprites/ColoredBush1.png" id="16_7jcfi"]
+[ext_resource type="Texture2D" uid="uid://chq56gmbkj8s6" path="res://Assets/Sprites/ColoredBush2.png" id="17_hmv7k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v12v6"]
 size = Vector2(52, 82)
@@ -146,6 +153,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m18ux"]
 size = Vector2(50, 93)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4adle"]
+size = Vector2(4484, 108.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r0cl4"]
+size = Vector2(120, 616)
+
 [node name="WorldScene" type="Node2D"]
 script = ExtResource("1_kf6wq")
 
@@ -177,13 +190,9 @@ speed_scale = 2.5
 process_callback = 0
 wait_time = 3.0
 
-[node name="House" type="Sprite2D" parent="."]
-position = Vector2(96, 494)
-texture = ExtResource("3_otfxw")
-
 [node name="FirePipe" type="Sprite2D" parent="."]
-position = Vector2(574, 586)
-texture = ExtResource("4_ot6by")
+position = Vector2(1440, 305)
+texture = ExtResource("5_n1jso")
 
 [node name="Area2D" type="Area2D" parent="FirePipe"]
 
@@ -191,109 +200,157 @@ texture = ExtResource("4_ot6by")
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_m18ux")
 
-[node name="Flowers" type="Sprite2D" parent="."]
-position = Vector2(990, 263)
-texture = ExtResource("5_exm1u")
-
-[node name="Tree1" type="Sprite2D" parent="."]
-position = Vector2(-39, 1)
-texture = ExtResource("6_td11n")
-
-[node name="Tree2" type="Sprite2D" parent="."]
-position = Vector2(291, 766)
-texture = ExtResource("6_td11n")
-
-[node name="Tree3" type="Sprite2D" parent="."]
-position = Vector2(488, 762)
-texture = ExtResource("7_shyih")
-
-[node name="Tree4" type="Sprite2D" parent="."]
-position = Vector2(193, -137)
-texture = ExtResource("8_bqqu3")
-
-[node name="Tree5" type="Sprite2D" parent="."]
-position = Vector2(-149, 701)
-texture = ExtResource("8_bqqu3")
-
-[node name="Tree6" type="Sprite2D" parent="."]
-position = Vector2(375, -183)
-texture = ExtResource("7_shyih")
-
-[node name="Flowers2" type="Sprite2D" parent="."]
-position = Vector2(-217, 312)
-rotation = 0.0309607
-texture = ExtResource("5_exm1u")
-
-[node name="Flowers3" type="Sprite2D" parent="."]
-position = Vector2(703, -164)
-rotation = -0.565344
-texture = ExtResource("5_exm1u")
-
-[node name="Tree7" type="Sprite2D" parent="."]
-position = Vector2(623, 816)
-texture = ExtResource("6_td11n")
-
-[node name="Tree8" type="Sprite2D" parent="."]
-position = Vector2(473, -49)
-texture = ExtResource("6_td11n")
-
-[node name="Tree9" type="Sprite2D" parent="."]
-position = Vector2(786, 723)
-texture = ExtResource("8_bqqu3")
-
-[node name="Tree10" type="Sprite2D" parent="."]
-position = Vector2(935, 629)
-texture = ExtResource("8_bqqu3")
-
-[node name="Tree11" type="Sprite2D" parent="."]
-position = Vector2(118, 771)
-texture = ExtResource("7_shyih")
-
-[node name="Tree12" type="Sprite2D" parent="."]
-position = Vector2(-178, -60)
-texture = ExtResource("6_td11n")
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 342)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-build_mode = 1
-polygon = PackedVector2Array(164, -5, 216, -3, 220, -134, 353, -136, 355, -64, 422, -66, 438, -42, 444, 77, 507, 78, 503, -34, 569, -98, 747, 99, 841, 97, 868, 534, 816, 578, 756, 603, 672, 700, 626, 684, 567, 723, 531, 644, 193, 644, 184, 477, 98, 350, 4, 474, 13, 682, -98, 591, -90, 465, -76, 142, 4, 140, 6, 8, 54, -53, 53, -135, 165, -139)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2149, -246)
+shape = SubResource("RectangleShape2D_4adle")
 
-[node name="Flowers4" type="Sprite2D" parent="."]
-position = Vector2(1069, -233)
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(-5, 864)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(2149, -246)
+shape = SubResource("RectangleShape2D_4adle")
+
+[node name="Alien" type="Sprite2D" parent="."]
+position = Vector2(138, 81)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_msqyo")
+
+[node name="ColoredBench" type="Sprite2D" parent="."]
+position = Vector2(295, 96)
+texture = ExtResource("7_lx5fc")
+
+[node name="ColoredBin" type="Sprite2D" parent="."]
+position = Vector2(388, 94)
+texture = ExtResource("8_0nk03")
+
+[node name="ColoredFlower" type="Sprite2D" parent="."]
+position = Vector2(455, 72)
+texture = ExtResource("9_1tgsb")
+
+[node name="ColoredHouse" type="Sprite2D" parent="."]
+position = Vector2(-56, 110)
+texture = ExtResource("10_j7kiy")
+
+[node name="ColoredLight" type="Sprite2D" parent="."]
+position = Vector2(-33, 352)
+texture = ExtResource("11_t5kk4")
+
+[node name="ColoredTree1" type="Sprite2D" parent="."]
+position = Vector2(-1, 555)
+texture = ExtResource("12_nistc")
+
+[node name="ColoredTree2" type="Sprite2D" parent="."]
+position = Vector2(110, 632)
+texture = ExtResource("13_ana48")
+
+[node name="ColoredTree3" type="Sprite2D" parent="."]
+position = Vector2(603, 39)
+texture = ExtResource("12_nistc")
+
+[node name="ColoredTree4" type="Sprite2D" parent="."]
+position = Vector2(249, 614)
+texture = ExtResource("13_ana48")
+
+[node name="ColoredTree5" type="Sprite2D" parent="."]
+position = Vector2(422, 603)
+texture = ExtResource("14_k5yu7")
+
+[node name="ColoredTree6" type="Sprite2D" parent="."]
+position = Vector2(798, 35)
+texture = ExtResource("14_k5yu7")
+
+[node name="Flowers" type="Sprite2D" parent="."]
+position = Vector2(728, 787)
 texture = ExtResource("5_exm1u")
 
-[node name="Flowers5" type="Sprite2D" parent="."]
-position = Vector2(-36, -401)
-texture = ExtResource("5_exm1u")
+[node name="ColoredBush1" type="Sprite2D" parent="."]
+position = Vector2(892, 110)
+texture = ExtResource("16_7jcfi")
 
-[node name="Flowers6" type="Sprite2D" parent="."]
-position = Vector2(-52, 1145)
-texture = ExtResource("5_exm1u")
+[node name="ColoredBush2" type="Sprite2D" parent="."]
+position = Vector2(896, 587)
+texture = ExtResource("17_hmv7k")
 
-[node name="Flowers7" type="Sprite2D" parent="."]
-position = Vector2(240, 1148)
-texture = ExtResource("5_exm1u")
+[node name="ColoredBush3" type="Sprite2D" parent="."]
+position = Vector2(997, 552)
+texture = ExtResource("16_7jcfi")
 
-[node name="Flowers8" type="Sprite2D" parent="."]
-position = Vector2(539, 1193)
-texture = ExtResource("5_exm1u")
+[node name="ColoredBush4" type="Sprite2D" parent="."]
+position = Vector2(1097, 578)
+texture = ExtResource("17_hmv7k")
 
-[node name="Flowers9" type="Sprite2D" parent="."]
-position = Vector2(-382, 805)
-texture = ExtResource("5_exm1u")
+[node name="ColoredBush5" type="Sprite2D" parent="."]
+position = Vector2(1165, 559)
+texture = ExtResource("17_hmv7k")
 
-[node name="Flowers10" type="Sprite2D" parent="."]
-position = Vector2(856, 1117)
-texture = ExtResource("5_exm1u")
+[node name="ColoredBush6" type="Sprite2D" parent="."]
+position = Vector2(1275, 557)
+texture = ExtResource("16_7jcfi")
 
-[node name="Flowers11" type="Sprite2D" parent="."]
-position = Vector2(1164, 875)
-texture = ExtResource("5_exm1u")
+[node name="ColoredHouse2" type="Sprite2D" parent="."]
+position = Vector2(1441, 611)
+texture = ExtResource("10_j7kiy")
 
-[node name="Flowers12" type="Sprite2D" parent="."]
-position = Vector2(1282, 320)
-texture = ExtResource("5_exm1u")
+[node name="ColoredHouse3" type="Sprite2D" parent="."]
+position = Vector2(1642, 602)
+texture = ExtResource("10_j7kiy")
+
+[node name="ColoredHouse4" type="Sprite2D" parent="."]
+position = Vector2(1851, 603)
+texture = ExtResource("10_j7kiy")
+
+[node name="ColoredTree7" type="Sprite2D" parent="."]
+position = Vector2(1022, 47)
+texture = ExtResource("13_ana48")
+
+[node name="ColoredTree8" type="Sprite2D" parent="."]
+position = Vector2(1200, 31)
+texture = ExtResource("14_k5yu7")
+
+[node name="ColoredTree9" type="Sprite2D" parent="."]
+position = Vector2(1394, 28)
+texture = ExtResource("12_nistc")
+
+[node name="ColoredLight2" type="Sprite2D" parent="."]
+position = Vector2(1498, 87)
+texture = ExtResource("11_t5kk4")
+
+[node name="ColoredBush7" type="Sprite2D" parent="."]
+position = Vector2(1578, 108)
+texture = ExtResource("17_hmv7k")
+
+[node name="ColoredBush8" type="Sprite2D" parent="."]
+position = Vector2(1457, 119)
+texture = ExtResource("17_hmv7k")
+
+[node name="ColoredBush9" type="Sprite2D" parent="."]
+position = Vector2(1296, 97)
+texture = ExtResource("16_7jcfi")
+
+[node name="ColoredBush10" type="Sprite2D" parent="."]
+position = Vector2(-50, 417)
+texture = ExtResource("17_hmv7k")
+
+[node name="ColoredBush11" type="Sprite2D" parent="."]
+position = Vector2(-122, 334)
+texture = ExtResource("16_7jcfi")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(-70, 355)
+shape = SubResource("RectangleShape2D_r0cl4")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(1736, 7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(-70, 355)
+shape = SubResource("RectangleShape2D_r0cl4")
 
 [connection signal="timeout" from="CharacterBody2D/Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="FirePipe/Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]

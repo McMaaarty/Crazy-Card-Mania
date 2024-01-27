@@ -1,6 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://dlv3jx5bgj4w8"]
+[gd_scene load_steps=6 format=3 uid="uid://dlv3jx5bgj4w8"]
 
 [ext_resource type="Script" path="res://Scenes/Objects/MonsieurGuilly.gd" id="1_on5qc"]
+[ext_resource type="Texture2D" uid="uid://cjbkcaon86f5u" path="res://Assets/Sprites/Guilli.png" id="2_laprb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmprr"]
+atlas = ExtResource("2_laprb")
+region = Rect2(0, 0, 182, 163)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_un6c1"]
+atlas = ExtResource("2_laprb")
+region = Rect2(200, 0, 182, 163)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p4w4s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmprr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_un6c1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="MonsieurGuilly" type="Node2D"]
 script = ExtResource("1_on5qc")
@@ -47,6 +70,13 @@ offset_bottom = -68.0
 text = "AD"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(19, -4)
+scale = Vector2(2.71134, 2.70245)
+sprite_frames = SubResource("SpriteFrames_p4w4s")
+autoplay = "default"
+frame_progress = 0.568797
 
 [connection signal="button_down" from="Area2D/CollisionPolygon2D/ButtonVentre" to="." method="_on_button_ventre_button_down"]
 [connection signal="button_down" from="Area2D/CollisionPolygon2D/ButtonCoteG" to="." method="_on_button_cote_g_button_down"]

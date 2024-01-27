@@ -141,6 +141,8 @@ func setupWin():
 	
 func setupLoose():
 	changePrompt("Oups.. C'est le bide")
+#	$AudioPlayer.stream = StaticData.get_random_fart()
+#	$AudioPlayer.play()	
 	$ConfettiPartyEffect.start_emitting_alternatif()
 	$ConfettiPartyEffect2.start_emitting_alternatif()
 	$ConfettiPartyEffect3.start_emitting_alternatif()
