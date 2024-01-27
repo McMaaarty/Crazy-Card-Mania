@@ -30,9 +30,11 @@ offset_top = -121.0
 offset_right = 154.0
 offset_bottom = 84.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
 text = "* BRUIT DE PET *"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]

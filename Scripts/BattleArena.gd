@@ -14,7 +14,10 @@ var hoverCard2:bool
 var hoverCard3:bool
 var hoverCard4:bool
 
+var questions:Array
+
 var adversaire:Array
+var reponsesAdversaire:Array;
 
 var normal_scale:float = 1
 var high_scale:float = 1.5
@@ -23,10 +26,17 @@ var eraseEffect = load("res://Scenes/Effects/CardDestroyedEffect.tscn")
 var winEffect = load("res://Scenes/Effects/ConfettiPartyEffect.tscn")
 
 func _ready():	
+	questions = StaticData.load_by_target("questions")
+	var reponses:Array = StaticData.load_by_target("reponses")
+	
+	questions.shuffle()
+	reponses.shuffle()
+	
 	card1 = $Node2D/Card1
 	card2 = $Node2D/Card2
 	card3 = $Node2D/Card3
 	card4 = $Node2D/Card4
+	
 	label = $CenterContainer/Label
 	
 	adversaire.append($NodeAdversaire/CardAversaire1)
@@ -35,7 +45,18 @@ func _ready():
 	adversaire.append($NodeAdversaire/CardAversaire4)
 	adversaire.shuffle()
 	
-	changePrompt("Le matin quand je me lêve ce que je préfère c'est ...")	
+	changePrompt(questions.pop_front())
+	
+	card1.change_label(reponses.pop_front())
+	card2.change_label(reponses.pop_front())
+	card3.change_label(reponses.pop_front())
+	card4.change_label(reponses.pop_front())
+	
+	reponsesAdversaire.append(reponses.pop_front())
+	reponsesAdversaire.append(reponses.pop_front())
+	reponsesAdversaire.append(reponses.pop_front())
+	reponsesAdversaire.append(reponses.pop_front())
+		
 	setupScene()
 
 func _process(delta):
@@ -112,6 +133,8 @@ func _on_card_4_button_clic():
 		instanciateEffect(card4)
 
 func instanciateEffect(card):
+	var gamerReponse = card.get_label()
+	
 	var instance = eraseEffect.instantiate()
 	instance.position = Vector2(card.position.x + card.size.x, card.position.y + card.size.y)
 	add_child(instance)
@@ -121,8 +144,30 @@ func instanciateEffect(card):
 	$Timer.start()
 	
 	var nodeAdversaire = $NodeAdversaire
-	
 	var carte = adversaire.pop_back()
+	
+	var computerReponse = reponsesAdversaire.pop_back()
+	
+	StaticData.add_point_to_gamer(
+		StaticData.get_values_by_promptIds(
+			StaticData.id_by_string("questions", label.text), 
+			StaticData.id_by_string("reponses", gamerReponse)
+		)
+	)
+	StaticData.add_point_to_computer(
+		StaticData.get_values_by_promptIds(
+			StaticData.id_by_string("questions", label.text), 
+			StaticData.id_by_string("reponses", computerReponse)
+		)
+	)
+	changePrompt(questions.pop_front())
+	
+	var gamerLabel = $gamer
+	var computerLabel = $computer
+	
+	gamerLabel.text = str(StaticData.get_gamer_points())
+	computerLabel.text = str(StaticData.get_computer_points())
+	
 	var instanceAdversaire = eraseEffect.instantiate()
 	
 	instanceAdversaire.position = Vector2(carte.position.x + nodeAdversaire.position.x, carte.position.y + nodeAdversaire.position.y)

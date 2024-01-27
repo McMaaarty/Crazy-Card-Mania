@@ -134,6 +134,10 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
 script = ExtResource("1_js77l")
 
 [node name="Timer" type="Timer" parent="."]
@@ -237,6 +241,17 @@ libraries = {
 position = Vector2(106, 549)
 scale = Vector2(0.24375, 0.24375)
 texture = ExtResource("6_ef64o")
+
+[node name="computer" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "0"
+horizontal_alignment = 2
+
+[node name="gamer" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "0"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="button_clic" from="Node2D/Card1" to="." method="_on_card_1_button_clic"]

@@ -12,3 +12,11 @@ func _on_area_2d_mouse_exited():
 
 func _on_button_down():
 	button_clic.emit()
+
+func change_label(text: String):
+	var label = $Carte/Label
+	label.text = text
+	
+func get_label() -> String:
+	var label = $Carte/Label
+	return label.text
