@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dlv3jx5bgj4w8"]
+[gd_scene load_steps=7 format=3 uid="uid://dlv3jx5bgj4w8"]
 
-[ext_resource type="Script" path="res://Scenes/Objects/MonsieurGuilly.gd" id="1_on5qc"]
+[ext_resource type="Script" path="res://Scripts/Objects/MonsieurGuilly.gd" id="1_on5qc"]
 [ext_resource type="Texture2D" uid="uid://cjbkcaon86f5u" path="res://Assets/Sprites/Guilli.png" id="2_laprb"]
+[ext_resource type="AudioStream" uid="uid://bcxmn80whw8a5" path="res://Assets/Sounds/ReverbFart.mp3" id="3_h32e3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fmprr"]
 atlas = ExtResource("2_laprb")
@@ -28,55 +29,58 @@ animations = [{
 [node name="MonsieurGuilly" type="Node2D"]
 script = ExtResource("1_on5qc")
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-polygon = PackedVector2Array(-124, -92, -124, 201, 137, 201, 136, -92, 280, -100, 280, -173, -280, -173, -280, -100)
-
-[node name="ButtonVentre" type="Button" parent="Area2D/CollisionPolygon2D"]
-offset_left = -36.0
-offset_top = 37.0
-offset_right = 58.0
-offset_bottom = 160.0
-action_mode = 0
-text = "Ventre"
-
-[node name="ButtonCoteG" type="Button" parent="Area2D/CollisionPolygon2D"]
-offset_left = -121.0
-offset_top = -42.0
-offset_right = -65.0
-offset_bottom = 68.0
-text = "CoteG"
-
-[node name="ButtonCoteD" type="Button" parent="Area2D/CollisionPolygon2D"]
-offset_left = 78.0
-offset_top = -44.0
-offset_right = 134.0
-offset_bottom = 72.0
-text = "CoteD"
-
-[node name="ButtonAisselleG" type="Button" parent="Area2D/CollisionPolygon2D"]
-offset_left = -162.0
-offset_top = -100.0
-offset_right = -102.0
-offset_bottom = -69.0
-text = "AG"
-
-[node name="ButtonAisselleD" type="Button" parent="Area2D/CollisionPolygon2D"]
-offset_left = 114.0
-offset_top = -99.0
-offset_right = 170.0
-offset_bottom = -68.0
-text = "AD"
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(19, -4)
+position = Vector2(19, -6)
 scale = Vector2(2.71134, 2.70245)
 sprite_frames = SubResource("SpriteFrames_p4w4s")
 autoplay = "default"
-frame_progress = 0.568797
+
+[node name="Area2D" type="Area2D" parent="."]
+z_index = -1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+z_index = 1
+polygon = PackedVector2Array(-121, -50, -122, 56, -68, 56, -68, 214, 7, 215, 7, 56, 41, 56, 41, 214, 106, 214, 106, 55, 160, 56, 160, -57, 266, -111, 265, -174, 163, -125, 162, -226, -121, -226, -121, -122, -228, -173, -226, -109)
+
+[node name="ButtonVentre" type="Button" parent="Area2D/CollisionPolygon2D"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -20.0
+offset_top = -51.0
+offset_right = 61.0
+offset_bottom = 51.0
+action_mode = 0
+
+[node name="ButtonCoteG" type="Button" parent="Area2D/CollisionPolygon2D"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -137.0
+offset_top = -31.0
+offset_right = -98.0
+offset_bottom = 51.0
+
+[node name="ButtonCoteD" type="Button" parent="Area2D/CollisionPolygon2D"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 140.0
+offset_top = -38.0
+offset_right = 172.0
+offset_bottom = 48.0
+
+[node name="ButtonAisselleG" type="Button" parent="Area2D/CollisionPolygon2D"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -139.0
+offset_top = -72.0
+offset_right = -101.0
+offset_bottom = -41.0
+
+[node name="ButtonAisselleD" type="Button" parent="Area2D/CollisionPolygon2D"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 141.0
+offset_top = -85.0
+offset_right = 178.0
+offset_bottom = -51.0
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(587, 289)
+stream = ExtResource("3_h32e3")
 
 [connection signal="button_down" from="Area2D/CollisionPolygon2D/ButtonVentre" to="." method="_on_button_ventre_button_down"]
 [connection signal="button_down" from="Area2D/CollisionPolygon2D/ButtonCoteG" to="." method="_on_button_cote_g_button_down"]

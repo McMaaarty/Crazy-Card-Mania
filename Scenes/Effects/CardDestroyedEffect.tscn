@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://oymmrumqqek3"]
 
-[ext_resource type="Script" path="res://Scenes/Effects/EffectEnd.gd" id="1_tl8h7"]
+[ext_resource type="Script" path="res://Scripts/Effects/EffectEnd.gd" id="1_rx4hm"]
 
 [sub_resource type="Curve" id="Curve_itveb"]
 max_value = 45.0
@@ -9,7 +9,7 @@ point_count = 2
 
 [node name="CardDestroyedEffect" type="Node2D"]
 z_index = 2
-script = ExtResource("1_tl8h7")
+script = ExtResource("1_rx4hm")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 emitting = false

@@ -18,5 +18,5 @@ func _process(delta):
 	
 func tickle():
 	if(mrGuilly.isKo):
-		finishLabel.text = "You WIN !"
+		finishLabel.text = "You WIN ! "
 	pass

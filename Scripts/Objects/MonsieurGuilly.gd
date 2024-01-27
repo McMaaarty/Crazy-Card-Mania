@@ -1,11 +1,16 @@
 extends Node2D
 
 @export var isKo = false;
-var totalHP = 1000;
-var maxRandom = 20;
+var totalHP = 300;
+var maxRandom = 30;
+var explosion;
 
+
+var sceneTest
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	explosion = preload("res://Scenes/Effects/Explosion.tscn")
+
 	pass # Replace with function body.
 
 
@@ -44,3 +49,17 @@ func testKO():
 
 func reduceHP():
 	totalHP = totalHP-randi() % maxRandom
+	startLaugh()
+	startAnimation()
+	
+func startLaugh():
+	$AudioPlayer.stream = StaticData.get_random_fart()
+	$AudioPlayer.play()	
+	
+func startAnimation():
+	var explose = explosion.instantiate()
+	add_child(explose)
+	explose.position = get_global_mouse_position() - explose.get_parent().position
+	explose.start_emitting()
+	pass
+	

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cbn41y2brq4g4"]
 
-[ext_resource type="Script" path="res://Scenes/Effects/EffectEnd.gd" id="1_6admd"]
+[ext_resource type="Script" path="res://Scripts/Effects/EffectEnd.gd" id="1_kfnxj"]
 [ext_resource type="Texture2D" uid="uid://7lkfn8wjotn6" path="res://Assets/Poop.png" id="2_t6o2f"]
 
 [sub_resource type="Curve" id="Curve_yror8"]
@@ -18,7 +18,7 @@ offsets = PackedFloat32Array(0.0606061, 0.181818, 0.333333, 0.50303, 0.70303, 0.
 colors = PackedColorArray(0.701273, 0.330567, 9.62615e-08, 1, 0.54902, 0.388235, 0, 1, 0.3762, 0.418956, 0.187979, 1, 0.236811, 0.17849, 0.116003, 1, 0.787804, 0.583863, 0.153887, 1, 0.615957, 0.27613, 0.1944, 1, 1, 1, 1, 1)
 
 [node name="ConfettiPartyEffect" type="Node2D"]
-script = ExtResource("1_6admd")
+script = ExtResource("1_kfnxj")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 emitting = false
