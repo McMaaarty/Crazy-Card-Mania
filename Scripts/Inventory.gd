@@ -1,13 +1,13 @@
 extends MarginContainer
 
-var inventoryList:FlowContainer
-var playerList:FlowContainer
+var inventoryList
+var playerList
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var cardInventory = preload("res://Scenes/Objects/CardInventory.tscn")
-	inventoryList = get_node("BoxContainer/InventoryCardList")
-	playerList = get_node("BoxContainer/PlayerCardList")
+	inventoryList = get_node("BoxContainer/ScrollContainer/InvenoryHBox")
+	playerList = get_node("BoxContainer/ScrollContainer2/PlayerHBox")
 	
 	for id in StaticData.inventoryCardIds:
 		var cardInventoryInst = cardInventory.instantiate()
@@ -25,7 +25,6 @@ func moveToPlayer(cardInventoryInst):
 	inventoryList.remove_child(cardInventoryInst)
 	playerList.add_child(cardInventoryInst)
 	cardInventoryInst.pressed.connect(moveToInventory.bind(cardInventoryInst))
-	
 
 func moveToInventory(cardInventoryInst):
 	cardInventoryInst.pressed.disconnect(moveToInventory)
@@ -33,8 +32,5 @@ func moveToInventory(cardInventoryInst):
 	inventoryList.add_child(cardInventoryInst)
 	cardInventoryInst.pressed.connect(moveToPlayer.bind(cardInventoryInst))
 	
-	
-
-
 
 

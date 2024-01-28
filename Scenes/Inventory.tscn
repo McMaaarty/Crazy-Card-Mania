@@ -16,11 +16,29 @@ script = ExtResource("1_4rmw7")
 
 [node name="BoxContainer" type="BoxContainer" parent="."]
 layout_mode = 2
-theme_override_constants/separation = 135
+theme_override_constants/separation = 25
 vertical = true
 
-[node name="InventoryCardList" type="FlowContainer" parent="BoxContainer"]
+[node name="Label" type="Label" parent="BoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Inventaire"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BoxContainer"]
+layout_mode = 2
+vertical_scroll_mode = 0
+
+[node name="InvenoryHBox" type="HBoxContainer" parent="BoxContainer/ScrollContainer"]
 layout_mode = 2
 
-[node name="PlayerCardList" type="FlowContainer" parent="BoxContainer"]
+[node name="Label2" type="Label" parent="BoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Deck"
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="BoxContainer"]
+layout_mode = 2
+vertical_scroll_mode = 0
+
+[node name="PlayerHBox" type="HBoxContainer" parent="BoxContainer/ScrollContainer2"]
 layout_mode = 2

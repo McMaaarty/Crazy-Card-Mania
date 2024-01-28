@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bno1g3c1ybxk6"]
+[gd_scene load_steps=3 format=3 uid="uid://vrfn4o5tvdhq"]
 
 [ext_resource type="Script" path="res://Scripts/Objects/CardInventory.gd" id="1_fdo2b"]
 [ext_resource type="Texture2D" uid="uid://n1vbnvmlv7e3" path="res://Assets/Carte.png" id="1_hhrej"]
