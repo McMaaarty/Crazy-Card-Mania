@@ -197,12 +197,16 @@ func setupScene():
 
 func setupWin():
 	changePrompt("Bravo ! C'est la victoire !")
+	$AudioPlayer.stream = load("res://Assets/Sounds/Gong.mp3")
+	$AudioPlayer.play()
 	$ConfettiPartyEffect.start_emitting()
 	$ConfettiPartyEffect2.start_emitting()
 	$ConfettiPartyEffect3.start_emitting()
 	
 func setupLoose():
 	changePrompt("Oups.. C'est le bide")
+	$AudioPlayer.stream = load("res://Assets/Sounds/Loose.mp3")
+	$AudioPlayer.play()
 	$ConfettiPartyEffect.start_emitting_alternatif()
 	$ConfettiPartyEffect2.start_emitting_alternatif()
 	$ConfettiPartyEffect3.start_emitting_alternatif()
@@ -219,7 +223,7 @@ func play_sound_by_response(gamerReponse):
 	
 	if(soundFile != ""):
 		$AudioPlayer.stream = load("res://Assets/Sounds/" + soundFile)
-		$AudioPlayer.play()	
+		$AudioPlayer.play()
 
 func _on_next_pressed():
 	changePrompt(questions.pop_front())
@@ -235,4 +239,5 @@ func _on_next_pressed():
 
 
 func _on_restart_pressed():
-	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
+	StaticData.reset_results()
+	get_tree().change_scene_to_file("res://Scenes/WorldScene.tscn")
