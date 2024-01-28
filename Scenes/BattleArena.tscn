@@ -223,24 +223,24 @@ stream = ExtResource("4_34jy6")
 position = Vector2(2.08165e-12, -250)
 
 [node name="CardAversaire1" type="Sprite2D" parent="NodeAdversaire"]
-position = Vector2(409.038, 400)
+position = Vector2(409.038, 113.166)
 rotation = 0.145469
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_dbevr")
 
 [node name="CardAversaire2" type="Sprite2D" parent="NodeAdversaire"]
-position = Vector2(517.038, 420)
+position = Vector2(517.038, 128.166)
 rotation = 0.0731316
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_dbevr")
 
 [node name="CardAversaire3" type="Sprite2D" parent="NodeAdversaire"]
-position = Vector2(625.038, 415)
+position = Vector2(625.038, 133.166)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_dbevr")
 
 [node name="CardAversaire4" type="Sprite2D" parent="NodeAdversaire"]
-position = Vector2(728.038, 400)
+position = Vector2(728.038, 118.166)
 rotation = -0.248465
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_dbevr")

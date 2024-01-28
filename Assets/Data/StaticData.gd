@@ -4,6 +4,7 @@ var playerCardIds = []
 var inventoryCardIds = {}
 var allCards = {}
 var fartSounds = []
+var laugthSounds = []
 
 var gamer:int = 0
 var computer:int = 0
@@ -11,6 +12,7 @@ var computer:int = 0
 func _ready():
 	allCards = load_json_file("res://Assets/Data/datas.json")
 	loadFarts()
+	loadLaught()
 	print(load_by_id("questions", 5))
 	print(get_values_by_promptIds(2,1))
 	
@@ -50,6 +52,9 @@ func load_json_file(filePath : String):
 	print("Error parsing file")
 	return null
 
+func loadLaught():
+	laugthSounds = ["hahaha", "hihihihi","houhouhou"]
+
 func loadFarts():
 	# id des noms de fichiers
 	fartSounds = [1, 3, 4, 5, 6, 7, 8, 9]
@@ -58,8 +63,15 @@ func get_random_fart():
 	var fartId = fartSounds.pick_random()
 	return load("res://Assets/Sounds/" + get_filename_by_fartId(fartId))
 
+func get_random_laught():
+	var laughtId = laugthSounds.pick_random()
+	return load("res://Assets/Sounds/" + get_filename_by_laughtId(laughtId))
+
 func get_filename_by_fartId(fartId):
 	return "Fart" + str(fartId) + ".mp3"
+
+func get_filename_by_laughtId(laughtId):
+	return str(laughtId) + ".mp3"
 
 func reset_results():
 	gamer = 0

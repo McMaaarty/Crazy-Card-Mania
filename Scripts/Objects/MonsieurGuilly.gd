@@ -67,7 +67,8 @@ func disableCurrentButton(currentButton):
 	lastButton = currentButton
 
 func enablePreviousButton():
-	lastButton.disabled = false
+	if(lastButton != null):
+		lastButton.disabled = false
 
 func reduceHP(currentButton):
 	totalHP = totalHP-randi() % maxRandom
@@ -77,7 +78,7 @@ func reduceHP(currentButton):
 	disableCurrentButton(currentButton)
 
 func startLaugh():
-	$AudioPlayer.stream = StaticData.get_random_fart()
+	$AudioPlayer.stream = StaticData.get_random_laught()
 	$AudioPlayer.play()	
 	
 func startAnimation():

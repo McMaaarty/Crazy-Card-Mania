@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dvkkiv3g2jw1n"]
+[gd_scene load_steps=7 format=3 uid="uid://dtotqhans1uj3"]
 
-[ext_resource type="PackedScene" uid="uid://dlv3jx5bgj4w8" path="res://Scenes/Objects/MonsieurGuilly.tscn" id="1_bujmf"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/MonsieurGuilly.tscn" id="1_bujmf"]
 [ext_resource type="Script" path="res://Scripts/GuillyTime.gd" id="1_yebls"]
 [ext_resource type="Texture2D" uid="uid://cx0r4ngotahxt" path="res://Assets/Sprites/hand.png" id="3_y1scg"]
 
