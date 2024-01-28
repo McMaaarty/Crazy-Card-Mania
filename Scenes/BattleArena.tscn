@@ -206,6 +206,11 @@ theme_override_colors/font_color = Color(0, 0.65098, 1, 1)
 theme_override_font_sizes/font_size = 25
 text = "PROMPT GAMER"
 
+[node name="restart" type="Button" parent="CenterContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Rejouer"
+
 [node name="ConfettiPartyEffect" parent="." instance=ExtResource("4_bao4m")]
 position = Vector2(202, 669)
 
@@ -290,4 +295,5 @@ text = "Question suivante"
 [connection signal="button_clic" from="Node2D/Card4" to="." method="_on_card_4_button_clic"]
 [connection signal="mouse_entered_area" from="Node2D/Card4" to="." method="_on_card_4_mouse_entered_area"]
 [connection signal="mouse_exited_area" from="Node2D/Card4" to="." method="_on_card_4_mouse_exited_area"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="Next" to="." method="_on_next_pressed"]

@@ -226,7 +226,13 @@ func _on_next_pressed():
 	isPlaying = false
 	
 	if(card1 == null && card2 == null && card3 == null && card4 == null):
+		var restartButton = $CenterContainer/VBoxContainer/restart
+		restartButton.visible = true
 		if(StaticData.get_gamer_points() > StaticData.get_computer_points()):
 			setupWin()
 		else:
 			setupLoose()
+
+
+func _on_restart_pressed():
+	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
