@@ -186,10 +186,25 @@ libraries = {
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+
+[node name="EnnemyPrompt" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.878431, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "PROMPT IA"
+
+[node name="Prompt" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
 text = "PROMPT : "
+
+[node name="GamerPrompt" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.65098, 1, 1)
+theme_override_font_sizes/font_size = 25
+text = "PROMPT GAMER"
 
 [node name="ConfettiPartyEffect" parent="." instance=ExtResource("4_bao4m")]
 position = Vector2(202, 669)
@@ -244,16 +259,25 @@ texture = ExtResource("6_ef64o")
 
 [node name="computer" type="Label" parent="."]
 layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.878431, 0, 0, 1)
 theme_override_font_sizes/font_size = 100
 text = "0"
 horizontal_alignment = 2
 
 [node name="gamer" type="Label" parent="."]
 layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0.65098, 1, 1)
 theme_override_font_sizes/font_size = 100
 text = "0"
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="Next" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Question suivante"
+
 [connection signal="button_clic" from="Node2D/Card1" to="." method="_on_card_1_button_clic"]
 [connection signal="mouse_entered_area" from="Node2D/Card1" to="." method="_on_card_1_mouse_entered_area"]
 [connection signal="mouse_exited_area" from="Node2D/Card1" to="." method="_on_card_1_mouse_exited_area"]
@@ -266,3 +290,4 @@ text = "0"
 [connection signal="button_clic" from="Node2D/Card4" to="." method="_on_card_4_button_clic"]
 [connection signal="mouse_entered_area" from="Node2D/Card4" to="." method="_on_card_4_mouse_entered_area"]
 [connection signal="mouse_exited_area" from="Node2D/Card4" to="." method="_on_card_4_mouse_exited_area"]
+[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]

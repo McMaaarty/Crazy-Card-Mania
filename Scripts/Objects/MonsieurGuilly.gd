@@ -76,8 +76,6 @@ func reduceHP(currentButton):
 	enablePreviousButton()
 	disableCurrentButton(currentButton)
 
-	
-	
 func startLaugh():
 	$AudioPlayer.stream = StaticData.get_random_fart()
 	$AudioPlayer.play()	

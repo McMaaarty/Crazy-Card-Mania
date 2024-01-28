@@ -1,6 +1,10 @@
 extends MarginContainer
 
 var label
+var promptGamer
+var promptEnnemy
+var nextButton
+
 var selectedCard
 var isPlaying:bool
 
@@ -37,7 +41,10 @@ func _ready():
 	card3 = $Node2D/Card3
 	card4 = $Node2D/Card4
 	
-	label = $CenterContainer/Label
+	label = $CenterContainer/VBoxContainer/Prompt
+	promptEnnemy = $CenterContainer/VBoxContainer/EnnemyPrompt
+	promptGamer = $CenterContainer/VBoxContainer/GamerPrompt
+	nextButton = $Next
 	
 	adversaire.append($NodeAdversaire/CardAversaire1)
 	adversaire.append($NodeAdversaire/CardAversaire2)
@@ -63,7 +70,11 @@ func _process(delta):
 	handleHoverCard()
 
 func changePrompt(prompt):
+	label.show()
 	label.text = prompt
+	promptGamer.hide()
+	promptEnnemy.hide()
+	nextButton.hide()
 
 func changeCardScale(card, scaleValue):
 	if(card != null):
@@ -133,6 +144,8 @@ func _on_card_4_button_clic():
 		instanciateEffect(card4)
 
 func instanciateEffect(card):
+	
+	isPlaying = true
 	var gamerReponse = card.get_label()
 	
 	var instance = eraseEffect.instantiate()
@@ -140,15 +153,18 @@ func instanciateEffect(card):
 	add_child(instance)
 	instance.start_emitting()
 	card.queue_free()
-	isPlaying = true
 	play_sound_by_response(gamerReponse)
-	$Timer.start()
 	
 	var nodeAdversaire = $NodeAdversaire
 	var carte = adversaire.pop_back()
-	
 	var computerReponse = reponsesAdversaire.pop_back()
 	
+	var instanceAdversaire = eraseEffect.instantiate()
+	instanceAdversaire.position = Vector2(carte.position.x + nodeAdversaire.position.x, carte.position.y + nodeAdversaire.position.y)
+	add_child(instanceAdversaire)
+	instanceAdversaire.start_emitting()
+	carte.queue_free()
+
 	StaticData.add_point_to_gamer(
 		StaticData.get_values_by_promptIds(
 			StaticData.id_by_string("questions", label.text), 
@@ -161,7 +177,6 @@ func instanciateEffect(card):
 			StaticData.id_by_string("reponses", computerReponse)
 		)
 	)
-	changePrompt(questions.pop_front())
 	
 	var gamerLabel = $gamer
 	var computerLabel = $computer
@@ -169,12 +184,13 @@ func instanciateEffect(card):
 	gamerLabel.text = str(StaticData.get_gamer_points())
 	computerLabel.text = str(StaticData.get_computer_points())
 	
-	var instanceAdversaire = eraseEffect.instantiate()
+	promptEnnemy.show()
+	promptGamer.show()
+	nextButton.show()
+	label.hide()
 	
-	instanceAdversaire.position = Vector2(carte.position.x + nodeAdversaire.position.x, carte.position.y + nodeAdversaire.position.y)
-	add_child(instanceAdversaire)
-	instanceAdversaire.start_emitting()
-	carte.queue_free()
+	promptEnnemy.text = label.text + " " + computerReponse.to_lower()
+	promptGamer.text = label.text + " " + gamerReponse.to_lower()
 
 func setupScene():
 	$Node2D/AnimationPlayer.play("setup_cards_animation")
@@ -191,9 +207,6 @@ func setupLoose():
 	$ConfettiPartyEffect2.start_emitting_alternatif()
 	$ConfettiPartyEffect3.start_emitting_alternatif()
 
-func _on_timer_timeout():
-	isPlaying = false
-
 func play_sound_by_response(gamerReponse):
 	# récupère l'id de la réponse, pour avoir le fichier à jouer
 	var reponseId = StaticData.id_by_string("reponses", gamerReponse)
@@ -207,3 +220,13 @@ func play_sound_by_response(gamerReponse):
 	if(soundFile != ""):
 		$AudioPlayer.stream = load("res://Assets/Sounds/" + soundFile)
 		$AudioPlayer.play()	
+
+func _on_next_pressed():
+	changePrompt(questions.pop_front())
+	isPlaying = false
+	
+	if(card1 == null && card2 == null && card3 == null && card4 == null):
+		if(StaticData.get_gamer_points() > StaticData.get_computer_points()):
+			setupWin()
+		else:
+			setupLoose()
