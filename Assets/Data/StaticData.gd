@@ -23,7 +23,8 @@ func load_by_id(listTarget : String, answer_id: int) -> String:
 	for key in dict:
 		if answer_id == dict[key]:
 			return key
-	return "Valeur non trouvé dans le dictionnaire : " + listTarget
+	print("Valeur non trouvé dans le dictionnaire : " + listTarget)
+	return ""
 
 func id_by_string(listTarget:String, label:String) -> int:
 	var dict = allCards[listTarget]
@@ -50,19 +51,15 @@ func load_json_file(filePath : String):
 	return null
 
 func loadFarts():
-	var fart1 = load("res://Assets/Sounds/Fart1.mp3")
-	var fart3 = load("res://Assets/Sounds/Fart3.mp3")
-	var fart4 = load("res://Assets/Sounds/Fart4.mp3")
-	var fart5 = load("res://Assets/Sounds/Fart5.mp3")
-	var fart6 = load("res://Assets/Sounds/Fart6.mp3")
-	var fart7 = load("res://Assets/Sounds/Fart7.mp3")
-	var fart8 = load("res://Assets/Sounds/Fart8.mp3")
-	var fart9 = load("res://Assets/Sounds/Fart9.mp3")
-	
-	fartSounds = [fart1, fart3, fart4, fart5, fart6, fart7, fart8, fart9]
+	# id des noms de fichiers
+	fartSounds = [1, 3, 4, 5, 6, 7, 8, 9]
 
 func get_random_fart():
-	return fartSounds.pick_random()
+	var fartId = fartSounds.pick_random()
+	return load("res://Assets/Sounds/" + get_filename_by_fartId(fartId))
+
+func get_filename_by_fartId(fartId):
+	return "Fart" + str(fartId) + ".mp3"
 
 func reset_results():
 	gamer = 0

@@ -141,6 +141,7 @@ func instanciateEffect(card):
 	instance.start_emitting()
 	card.queue_free()
 	isPlaying = true
+	play_sound_by_response(gamerReponse)
 	$Timer.start()
 	
 	var nodeAdversaire = $NodeAdversaire
@@ -186,11 +187,23 @@ func setupWin():
 	
 func setupLoose():
 	changePrompt("Oups.. C'est le bide")
-#	$AudioPlayer.stream = StaticData.get_random_fart()
-#	$AudioPlayer.play()	
 	$ConfettiPartyEffect.start_emitting_alternatif()
 	$ConfettiPartyEffect2.start_emitting_alternatif()
 	$ConfettiPartyEffect3.start_emitting_alternatif()
 
 func _on_timer_timeout():
 	isPlaying = false
+
+func play_sound_by_response(gamerReponse):
+	# récupère l'id de la réponse, pour avoir le fichier à jouer
+	var reponseId = StaticData.id_by_string("reponses", gamerReponse)
+	var soundFile = StaticData.load_by_id("Audio", reponseId)
+	
+	if(reponseId == 15):
+		# carte spéciale avec un son aléatoire
+		var fartId = StaticData.fartSounds.pick_random()
+		soundFile = StaticData.get_filename_by_fartId(fartId)
+	
+	if(soundFile != ""):
+		$AudioPlayer.stream = load("res://Assets/Sounds/" + soundFile)
+		$AudioPlayer.play()	

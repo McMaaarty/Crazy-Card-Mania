@@ -34,17 +34,23 @@
 		"La prothèse de hanche de papi" : 27,
 		"Le dentier de mami" : 28,
 		"Une fleur qui sent bon" : 29,
-		"Une fourchette" : 30
+		"Une fourchette" : 30,
+		"Batman" : 3,
+		"Le Bron James" : 5,
+		"De La Musique De Pirate" : 6,
+		"Un Cricket" : 13,
+		"Leroy Jenkins" : 14,
+		"Bruit De Prout" : 15,
+		"Une Belle Banane" : 20
 	},
 
 	"Audio": {
-		"Batman" : 3,
-		"LeBronJames" : 5,
-		"DeLaMusiqueDePirate" : 6,
-		"UnCricket" : 13,
-		"LeroyJenkins" : 14,
-		"BruitDeProut" : 15,
-		"UneBelleBanane" : 20
+		"Batman.wav" : 3,
+		"LeBronJames.mp3" : 5,
+		"Criquet.mp3" : 13,
+		"LeroyJenkins.mp3" : 14,
+		"ReverbFart.mp3" : 17,
+		"UneBelleBanane.mp3" : 20
 	  },
 
 	"Values": [
