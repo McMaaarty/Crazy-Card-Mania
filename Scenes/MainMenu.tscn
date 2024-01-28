@@ -22,10 +22,22 @@ script = ExtResource("1_xxbc2")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/Button"]
 layout_mode = 0
-offset_left = 83.0
-offset_top = 17.0
-offset_right = 138.0
-offset_bottom = 57.0
-text = "Jouer !"
+offset_left = 79.0
+offset_top = -103.0
+offset_right = 197.0
+offset_bottom = -44.0
+theme_override_font_sizes/normal_font_size = 32
+text = "Jouer a"
+autowrap_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/Button"]
+layout_mode = 0
+offset_left = -156.0
+offset_top = -68.0
+offset_right = 429.0
+offset_bottom = -42.0
+theme_override_font_sizes/font_size = 56
+text = "Crazy Card Mania"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="CenterContainer/Button" to="CenterContainer/Button" method="_on_pressed"]
