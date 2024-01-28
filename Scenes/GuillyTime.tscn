@@ -1,7 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvkkiv3g2jw1n"]
+[gd_scene load_steps=7 format=3 uid="uid://dvkkiv3g2jw1n"]
 
 [ext_resource type="PackedScene" uid="uid://dlv3jx5bgj4w8" path="res://Scenes/Objects/MonsieurGuilly.tscn" id="1_bujmf"]
 [ext_resource type="Script" path="res://Scripts/GuillyTime.gd" id="1_yebls"]
+[ext_resource type="Texture2D" uid="uid://cx0r4ngotahxt" path="res://Assets/Sprites/hand.png" id="3_y1scg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7h4gq"]
+atlas = ExtResource("3_y1scg")
+region = Rect2(0, 6, 128, 114)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ro6ag"]
+atlas = ExtResource("3_y1scg")
+region = Rect2(128, 6, 128, 114)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mpg11"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7h4gq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ro6ag")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="MarginContainer" type="MarginContainer"]
 anchors_preset = 15
@@ -19,3 +42,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 horizontal_alignment = 1
+
+[node name="HandAnimated2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mpg11")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
