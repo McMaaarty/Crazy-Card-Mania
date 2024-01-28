@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dlv3jx5bgj4w8"]
+[gd_scene load_steps=7 format=3 uid="uid://d1ksajbwrlnym"]
 
 [ext_resource type="Script" path="res://Scripts/Objects/MonsieurGuilly.gd" id="1_on5qc"]
 [ext_resource type="Texture2D" uid="uid://cjbkcaon86f5u" path="res://Assets/Sprites/Guilli.png" id="2_laprb"]
@@ -83,7 +83,12 @@ position = Vector2(587, 289)
 stream = ExtResource("3_h32e3")
 
 [connection signal="button_down" from="Area2D/CollisionPolygon2D/ButtonVentre" to="." method="_on_button_ventre_button_down"]
+[connection signal="button_up" from="Area2D/CollisionPolygon2D/ButtonVentre" to="." method="_on_button_ventre_button_up"]
 [connection signal="button_down" from="Area2D/CollisionPolygon2D/ButtonCoteG" to="." method="_on_button_cote_g_button_down"]
+[connection signal="button_up" from="Area2D/CollisionPolygon2D/ButtonCoteG" to="." method="_on_button_cote_g_button_up"]
 [connection signal="button_down" from="Area2D/CollisionPolygon2D/ButtonCoteD" to="." method="_on_button_cote_d_button_down"]
+[connection signal="button_up" from="Area2D/CollisionPolygon2D/ButtonCoteD" to="." method="_on_button_cote_d_button_up"]
 [connection signal="button_down" from="Area2D/CollisionPolygon2D/ButtonAisselleG" to="." method="_on_button_aisselle_g_button_down"]
+[connection signal="button_up" from="Area2D/CollisionPolygon2D/ButtonAisselleG" to="." method="_on_button_aisselle_g_button_up"]
 [connection signal="button_down" from="Area2D/CollisionPolygon2D/ButtonAisselleD" to="." method="_on_button_aisselle_d_button_down"]
+[connection signal="button_up" from="Area2D/CollisionPolygon2D/ButtonAisselleD" to="." method="_on_button_aisselle_d_button_up"]
