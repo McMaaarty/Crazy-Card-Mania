@@ -69,8 +69,10 @@ func _ready():
 func _process(delta):
 	handleHoverCard()
 
-func changePrompt(prompt):
+func changePrompt(prompt:String):
 	label.show()
+	if (prompt.match("*%s*")):
+		prompt = prompt % "..."
 	label.text = prompt
 	promptGamer.hide()
 	promptEnnemy.hide()
@@ -189,8 +191,8 @@ func instanciateEffect(card):
 	nextButton.show()
 	label.hide()
 	
-	promptEnnemy.text = label.text + " " + computerReponse.to_lower()
-	promptGamer.text = label.text + " " + gamerReponse.to_lower()
+	promptEnnemy.text = label.text.replace("...", "%s") % computerReponse.to_upper()
+	promptGamer.text = label.text.replace("...", "%s") % gamerReponse.to_upper()
 
 func setupScene():
 	$Node2D/AnimationPlayer.play("setup_cards_animation")

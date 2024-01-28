@@ -1,15 +1,15 @@
 {
 	"questions": {
-		"Qu'est ce qui occupe papa dans le garage ?" : 1,
-		"Quand j'ai fait caca, ... est sorti de mes fesses" : 2,
-		"D'où viennent les bébés ?" : 3,
-		"Oh punaise ! Ma vidéo ... compte dix millions de vues !" : 4,
-		"C'est un piège ! C'est …" : 5,
-		"Nous étions à Disney et là, mon père a sorti : …" : 6,
-		"Qu'est-ce que mes parents me cachent ?" : 7,
-		"A cause de … je suis tout collant !" : 8,
-		"Quand je suis fatigué je prend … et c'est reparti !" : 9,
-		"Grâce à … l'ambiance au mariage de ma sœur était sauvée" : 10
+		"Qu'est ce qui occupe papa dans le garage ? %s" : 1,
+		"Quand j'ai fait caca, %s est sorti de mes fesses" : 2,
+		"D'où viennent les bébés ? %s" : 3,
+		"Oh punaise ! Ma vidéo %s compte dix millions de vues !" : 4,
+		"C'est un piège ! C'est %s" : 5,
+		"Nous étions à Disney et là, mon père a sorti : %s" : 6,
+		"Qu'est-ce que mes parents me cachent ? %s" : 7,
+		"A cause de %s je suis tout collant !" : 8,
+		"Quand je suis fatigué je prend %s et c'est reparti !" : 9,
+		"Grâce à %s l'ambiance au mariage de ma sœur était sauvée" : 10
 	},
 	"reponses": {
 		"Des boules" : 1,

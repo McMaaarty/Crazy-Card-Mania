@@ -30,7 +30,11 @@ func load_by_id(listTarget : String, answer_id: int) -> String:
 
 func id_by_string(listTarget:String, label:String) -> int:
 	var dict = allCards[listTarget]
-	return dict[label]
+	var hasPoint = label.match("*...*")
+	var dictKey = label
+	if (hasPoint):
+		dictKey = label.replace("...", "%s")
+	return dict[dictKey]
 
 func load_by_target(listTarget : String) -> Array:
 	var target:Dictionary = allCards[listTarget]
